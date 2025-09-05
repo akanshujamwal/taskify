@@ -120,7 +120,7 @@ class _Add_creenState extends State<Add_creen> {
           decoration: InputDecoration(
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              hintText: 'title',
+              hintText: 'Title',
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
@@ -140,6 +140,7 @@ class _Add_creenState extends State<Add_creen> {
     );
   }
 
+
   Padding subtite_wedgite() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -155,7 +156,7 @@ class _Add_creenState extends State<Add_creen> {
           style: TextStyle(fontSize: 18, color: Colors.black),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-            hintText: 'subtitle',
+            hintText: 'Subtitle',
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(

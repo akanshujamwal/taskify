@@ -4,32 +4,34 @@ import 'package:taskify/widgets/task_widgets.dart';
 
 import '../data/firestor.dart';
 
-class Stream_note extends StatelessWidget {
+class StreamNote extends StatelessWidget {
   bool done;
-  Stream_note(this.done, {super.key});
+  StreamNote(this.done, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-        stream: Firestore_Datasource().stream(done),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return CircularProgressIndicator();
-          }
-          final noteslist = Firestore_Datasource().getNotes(snapshot);
-          return ListView.builder(
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              final note = noteslist[index];
-              return Dismissible(
-                  key: UniqueKey(),
-                  onDismissed: (direction) {
-                    Firestore_Datasource().delet_note(note.id);
-                  },
-                  child: Task_Widget(note));
-            },
-            itemCount: noteslist.length,
-          );
-        });
+      stream: Firestore_Datasource().stream(done),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return CircularProgressIndicator();
+        }
+        final noteslist = Firestore_Datasource().getNotes(snapshot);
+        return ListView.builder(
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            final note = noteslist[index];
+            return Dismissible(
+              key: UniqueKey(),
+              onDismissed: (direction) {
+                Firestore_Datasource().delet_note(note.id);
+              },
+              child: Task_Widget(note),
+            );
+          },
+          itemCount: noteslist.length,
+        );
+      },
+    );
   }
 }
