@@ -1,4 +1,4 @@
-# taskify
+# Taskify
 
 A new Flutter project.
 
